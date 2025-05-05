@@ -4,71 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Жеке кабинет</title>
-  <!-- Tailwind (версия CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Telegram Mini-App SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <!-- Lucide icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-slate-100 text-slate-900">
-  <!-- wrapper -->
+<body class="bg-neutral-900 text-white font-sans">
   <div class="max-w-sm mx-auto py-6 px-4">
-    <!-- заголовок -->
-    <h1 class="text-2xl font-bold mb-4 text-center">
-      👋 Сәлем, <span id="username">User</span>!
-    </h1>
-
-    <!-- баланс и кнопки -->
-    <div class="bg-white rounded-2xl shadow p-4 mb-6">
-      <p class="text-sm text-slate-500">Баланс:</p>
-      <p class="text-3xl font-semibold mb-4">
-        <span id="balance">0</span> ⚡
-      </p>
+    <!-- Логотип + баланс -->
+    <div class="flex items-center justify-between mb-6">
+      <div class="text-3xl font-bold">⚡ <span class="text-violet-400">0</span></div>
       <button id="topup"
-        class="w-full py-2 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700 active:bg-indigo-800 transition">
-        🔋 Пополнить
-      </button>
+        class="px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-700 active:bg-violet-800 transition">Пополнить</button>
     </div>
 
-    <!-- список сервисов -->
-    <h2 class="text-lg font-semibold mb-2">Сервисы</h2>
+    <!-- Тарифы -->
+    <h2 class="text-lg font-semibold mb-3">Тарифы</h2>
+    <div class="space-y-4">
 
-    <div class="grid grid-cols-2 gap-3">
-      <!-- карточка -->
-      <a href="#" class="service-btn">
-        <div class="bg-white rounded-xl shadow p-3 flex flex-col items-center">
-          <span class="text-2xl">💬</span>
-          <span class="text-xs mt-1 text-center">ChatGPT</span>
+      <!-- Карточка тарифа -->
+      <div class="tariff bg-neutral-800 rounded-2xl p-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-semibold">Basic</h3>
+            <p class="text-sm text-neutral-400">100 запросов • 3 модели</p>
+          </div>
+          <div class="text-right">
+            <p class="text-xl font-bold">₸1 990</p>
+            <button class="buy mt-1 text-xs underline text-violet-400">Купить</button>
+          </div>
         </div>
-      </a>
-      <!-- дублируем для примера -->
-      <a href="#" class="service-btn">
-        <div class="bg-white rounded-xl shadow p-3 flex flex-col items-center">
-          <span class="text-2xl">🔮</span>
-          <span class="text-xs mt-1 text-center">Gemini</span>
+      </div>
+
+      <!-- Дублируем для остальных -->
+      <div class="tariff bg-neutral-800 rounded-2xl p-4">
+        <div class="flex items-center justify-between">
+          <div><h3 class="font-semibold">Standard</h3><p class="text-sm text-neutral-400">300 запросов</p></div>
+          <div class="text-right"><p class="text-xl font-bold">₸4 990</p><button class="buy mt-1 text-xs underline text-violet-400">Купить</button></div>
         </div>
-      </a>
-      <!-- добавишь остальные позже -->
-    </div>
-  </div>
+      </div>
 
-  <!-- JS-логика -->
-  <script>
-    const tg = window.Telegram.WebApp;
-    tg.expand(); // разворачиваем web-view
+      <div class="tariff bg-neutral-800 rounded-2xl p-4">
+        <div class="flex items-center justify-between">
+          <div><h3 class="font-semibold">Pro</h3><p class="text-sm text-neutral-400">1 000 запросов</p></div>
+          <div class="text-right"><p class="text-xl font-bold">₸9 990</p><button class="buy mt-1 text-xs underline text-violet-400">Купить</button></div>
+        </div>
+      </div>
 
-    // персонализируем имя
-    const userEl = document.getElementById("username");
-    userEl.textContent = tg.initDataUnsafe?.user?.first_name || "друг";
+      <div class="tariff bg-neutral-800 rounded-2xl p-4">
+        <div class="flex items-center justify-between">
+          <div><h3 class="font-semibold">VIP</h3><p class="text-sm text-neutral-400">5 000 запросов</p></div>
+          <div class="text-right"><p class="text-xl font-bold">₸24 990</p><button class="buy mt-1 text-xs underline text-violet-400">Купить</button></div>
+        </div>
+      </div>
 
-    // пока баланс жёстко «0» — позже подставим real-API
-    // обработчик кнопки
-    document.getElementById("topup").onclick = () => {
-      tg.showPopup({
-        title: "Пополнение",
-        message: "Скоро добавим оплату 😉",
-        buttons: [{ id: "ok", type: "ok", text: "OK" }],
-      });
-    };
-  </script>
-</body>
-</html>
+      <div class="tariff bg
+
