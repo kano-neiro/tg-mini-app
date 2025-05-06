@@ -1,62 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Жеке кабинет</title>
+  <title>Личный кабинет</title>
+
+  <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Telegram Mini-App SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <!-- Lucide icons CDN -->
+  <!-- Lucide иконки -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-neutral-900 text-white font-sans">
+
+<body class="bg-neutral-900 text-white">
   <div class="max-w-sm mx-auto py-6 px-4">
-    <!-- Логотип + баланс -->
+
+    <!-- баланс + пополнить -->
     <div class="flex items-center justify-between mb-6">
       <div class="text-3xl font-bold">⚡ <span class="text-violet-400">0</span></div>
       <button id="topup"
-        class="px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-700 active:bg-violet-800 transition">Пополнить</button>
+        class="px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-700 active:bg-violet-800 transition">
+        Пополнить
+      </button>
     </div>
 
-    <!-- Тарифы -->
+    <!-- тарифы -->
     <h2 class="text-lg font-semibold mb-3">Тарифы</h2>
     <div class="space-y-4">
 
-      <!-- Карточка тарифа -->
-      <div class="tariff bg-neutral-800 rounded-2xl p-4">
+      <!-- FREE -->
+      <div class="bg-neutral-800 rounded-2xl p-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-semibold">Free</h3>
+            <p class="text-sm text-neutral-400">5 генераций • бесплатно</p>
+          </div>
+          <div class="text-right">
+            <p class="text-xl font-bold">0 $</p>
+            <button class="buy mt-1 text-xs underline text-violet-400">Активировать</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BASIC -->
+      <div class="bg-neutral-800 rounded-2xl p-4">
         <div class="flex items-center justify-between">
           <div>
             <h3 class="font-semibold">Basic</h3>
-            <p class="text-sm text-neutral-400">100 запросов • 3 модели</p>
+            <p class="text-sm text-neutral-400">250 токенов</p>
           </div>
           <div class="text-right">
-            <p class="text-xl font-bold">₸1 990</p>
+            <p class="text-xl font-bold">$9</p>
             <button class="buy mt-1 text-xs underline text-violet-400">Купить</button>
           </div>
         </div>
       </div>
 
-      <!-- Дублируем для остальных -->
-      <div class="tariff bg-neutral-800 rounded-2xl p-4">
+      <!-- STANDARD -->
+      <div class="bg-neutral-800 rounded-2xl p-4">
         <div class="flex items-center justify-between">
-          <div><h3 class="font-semibold">Standard</h3><p class="text-sm text-neutral-400">300 запросов</p></div>
-          <div class="text-right"><p class="text-xl font-bold">₸4 990</p><button class="buy mt-1 text-xs underline text-violet-400">Купить</button></div>
+          <div>
+            <h3 class="font-semibold">Standard</h3>
+            <p class="text-sm text-neutral-400">720 токенов</p>
+          </div>
+          <div class="text-right">
+            <p class="text-xl font-bold">$18</p>
+            <button class="buy mt-1 text-xs underline text-violet-400">Купить</button>
+          </div>
         </div>
       </div>
 
-      <div class="tariff bg-neutral-800 rounded-2xl p-4">
+      <!-- PRO -->
+      <div class="bg-neutral-800 rounded-2xl p-4">
         <div class="flex items-center justify-between">
-          <div><h3 class="font-semibold">Pro</h3><p class="text-sm text-neutral-400">1 000 запросов</p></div>
-          <div class="text-right"><p class="text-xl font-bold">₸9 990</p><button class="buy mt-1 text-xs underline text-violet-400">Купить</button></div>
+          <div>
+            <h3 class="font-semibold">Pro</h3>
+            <p class="text-sm text-neutral-400">1 800 токенов</p>
+          </div>
+          <div class="text-right">
+            <p class="text-xl font-bold">$45</p>
+            <button class="buy mt-1 text-xs underline text-violet-400">Купить</button>
+          </div>
         </div>
       </div>
 
-      <div class="tariff bg-neutral-800 rounded-2xl p-4">
+      <!-- VIP -->
+      <div class="bg-gradient-to-r from-pink-600 via-violet-600 to-blue-500 rounded-2xl p-4">
         <div class="flex items-center justify-between">
-          <div><h3 class="font-semibold">VIP</h3><p class="text-sm text-neutral-400">5 000 запросов</p></div>
-          <div class="text-right"><p class="text-xl font-bold">₸24 990</p><button class="buy mt-1 text-xs underline text-violet-400">Купить</button></div>
+          <div>
+            <h3 class="font-semibold">VIP</h3>
+            <p class="text-sm">2 700 токенов</p>
+          </div>
+          <div class="text-right">
+            <p class="text-xl font-bold">$45</p>
+            <button class="buy mt-1 text-xs underline">Купить</button>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="tariff bg
+    <!-- соц-сети -->
+    <div class="flex justify-center mt-8 space-x-6 text-neutral-400">
+      <a href="#" target="_blank"><i data-lucide="instagram"></i></a>
+      <a href="#" target="_blank"><i data-lucide="youtube"></i></a>
+      <a href="#" target="_blank"><i data-lucide="twitter"></i></a>
+    </div>
+  </div>
 
+  <script>
+    lucide.createIcons();
+    const tg = Telegram.WebApp;
+    tg.expand();
+
+    // всплывашка-заглушка
+    document.querySelectorAll(".buy").forEach(btn => {
+      btn.onclick = () => tg.showPopup({
+        title: "Оплата",
+        message: "Оплата будет подключена позже 😉",
+        buttons: [{ id: "ok", type: "ok", text: "OK" }],
+      });
+    });
+
+    document.getElementById("topup").onclick = () => tg.showPopup({
+      title: "Пополнение",
+      message: "Функция пополнения в разработке.",
+      buttons: [{ id: "ok", type: "ok", text: "OK" }],
+    });
+  </script>
+</body>
+</html>
